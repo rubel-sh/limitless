@@ -1,7 +1,11 @@
 import React from "react";
 
-const ProductsTable = ({ isOpen, setIsOpen, productsArray }) => {
-  console.log(productsArray);
+const ProductsTable = ({
+  isOpen,
+  setIsOpen,
+  productsArray,
+  setSelectedModalItem,
+}) => {
   return (
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg mt-5">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -25,34 +29,48 @@ const ProductsTable = ({ isOpen, setIsOpen, productsArray }) => {
           </tr>
         </thead>
         <tbody>
-          {productsArray.map((product, index) => (
-            <tr
-              key={index}
-              className="border-b border-gray-200 dark:border-gray-700"
-            >
-              {console.log(product)}
-              <th
-                scope="row"
-                className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+          {productsArray.map((product, index) => {
+            const {
+              category,
+              color,
+              product_discount_price,
+              product_image,
+              product_price,
+              product_title,
+            } = product;
+            return (
+              <tr
+                key={index}
+                className="border-b border-gray-200 dark:border-gray-700"
               >
-                Apple MacBook Pro 17"
-              </th>
-              <td className="py-4 px-6">Sliver</td>
-              <td className="py-4 px-6 bg-gray-50 dark:bg-gray-800">Laptop</td>
-              <td className="py-4 px-6">$2999</td>
-              <td className="py-4 px-6">
-                {/* <!-- Modal toggle --> */}
-                <button
-                  className="block text-sky-700 hover:text-black "
-                  type="button"
-                  data-modal-toggle="productDetailsModal"
-                  onClick={() => setIsOpen(!isOpen)}
+                <th
+                  scope="row"
+                  className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
                 >
-                  Details
-                </button>
-              </td>
-            </tr>
-          ))}
+                  {product_title}
+                </th>
+                <td className="py-4 px-6">{color}</td>
+                <td className="py-4 px-6 bg-gray-50 dark:bg-gray-800">
+                  {category}
+                </td>
+                <td className="py-4 px-6">${product_discount_price}</td>
+                <td className="py-4 px-6">
+                  {/* <!-- Modal toggle --> */}
+                  <button
+                    className="block text-sky-700 hover:text-black "
+                    type="button"
+                    data-modal-toggle="productDetailsModal"
+                    onClick={() => {
+                      setIsOpen(!isOpen);
+                      setSelectedModalItem(product);
+                    }}
+                  >
+                    Details
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

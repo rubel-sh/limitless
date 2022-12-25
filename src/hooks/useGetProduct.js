@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 const useGetProducts = () => {
   const [productsArray, setProductsArray] = useState([]);
   const url = import.meta.env.VITE_API;
-  console.log(url);
   // Fetch Products Data
   useEffect(() => {
     const fetchData = async () => {

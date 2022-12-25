@@ -10,8 +10,10 @@ const ProductLists = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedModalItem, setSelectedModalItem] = useState({});
 
+  console.log(selectedModalItem);
+
   const productsArray = useGetProducts();
-  console.log(productsArray);
+
   return (
     <Container>
       <div className="">
@@ -32,7 +34,7 @@ const ProductLists = () => {
       <AdminProductModal
         isOpen={isOpen}
         setIsOpen={setIsOpen}
-        // contents={contents}
+        selectedModalItem={selectedModalItem}
       />
     </Container>
   );
