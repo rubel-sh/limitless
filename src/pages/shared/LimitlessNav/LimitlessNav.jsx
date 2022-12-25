@@ -4,11 +4,10 @@ import brandLogo from "../../../assets/logo/limitless.png";
 
 const LimitlessNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   const adminNavLinks = [
-    { title: "Customer Lists", link: "customer_lists" },
-    { title: "Product Lists", link: "product_lists" },
+    { title: "DASHBOARD", link: "/dashboard" },
     { title: "Sign Out", link: "signout" },
   ];
   const customerNavLinks = [

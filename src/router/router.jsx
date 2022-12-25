@@ -21,11 +21,11 @@ export const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "products_list",
+        path: "product_lists",
         element: <ProductLists />,
       },
       {
-        path: "customers_list",
+        path: "customer_lists",
         element: <CustomerLists />,
       },
     ],
