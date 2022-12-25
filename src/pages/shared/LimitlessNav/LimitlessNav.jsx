@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HashLink } from "react-router-hash-link";
+import { HashLink, NavHashLink } from "react-router-hash-link";
 import brandLogo from "../../../assets/logo/limitless.png";
 
 const LimitlessNav = () => {
@@ -18,23 +18,23 @@ const LimitlessNav = () => {
   /* If admin is logged in then show admin dashboard otherwise show customers navbar */
   const navLinks = isAdmin
     ? adminNavLinks.map((item) => (
-        <li>
-          <HashLink
+        <li key={item.link}>
+          <NavHashLink
             to={item.link}
             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-sky-500"
           >
             {item.title}
-          </HashLink>
+          </NavHashLink>
         </li>
       ))
     : customerNavLinks.map((item) => (
-        <li>
-          <HashLink
+        <li key={item.link}>
+          <NavHashLink
             to={item.link}
             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
           >
             {item.title}
-          </HashLink>
+          </NavHashLink>
         </li>
       ));
   return (

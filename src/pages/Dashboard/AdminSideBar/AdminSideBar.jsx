@@ -1,5 +1,5 @@
 import React from "react";
-import { HashLink } from "react-router-hash-link";
+import { HashLink, NavHashLink } from "react-router-hash-link";
 
 const AdminSideBar = () => {
   const adminNavLinks = [
@@ -12,13 +12,13 @@ const AdminSideBar = () => {
       {/* NavLinks */}
       <ul className="flex flex-col gap-5">
         {adminNavLinks.map((item) => (
-          <li>
-            <HashLink
+          <li key={item.link}>
+            <NavHashLink
               to={item.link}
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-sky-500"
             >
               {item.title}
-            </HashLink>
+            </NavHashLink>
           </li>
         ))}
       </ul>
