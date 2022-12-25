@@ -1,0 +1,12 @@
+.animate_banner {
+  animation: scaleUp 10s ease forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9) rotate(-10deg);
+  }
+  to {
+    transform: scale(1.1) rotate(10deg);
+  }
+}
