@@ -68,7 +68,9 @@ const ExclusiveProducts = () => {
   ];
   return (
     <Container>
-      <h2 className="md:text-2xl font-medium">Exclusive Collections</h2>
+      <h2 className="md:text-2xl font-medium" id="collections">
+        Exclusive Collections
+      </h2>
       <div className="grid md:grid-cols-3 lg:grid-cols-4">
         {/* Shows lists of products from api call */}
         {productsArray.map((productDetails) => (

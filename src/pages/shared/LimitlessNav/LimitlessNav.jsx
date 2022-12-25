@@ -1,8 +1,43 @@
 import React, { useState } from "react";
+import { HashLink } from "react-router-hash-link";
 import brandLogo from "../../../assets/logo/limitless.png";
 
 const LimitlessNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const adminNavLinks = [
+    { title: "Customer Lists", link: "customer_lists" },
+    { title: "Product Lists", link: "product_lists" },
+    { title: "Sign Out", link: "signout" },
+  ];
+  const customerNavLinks = [
+    { title: "Collections", link: "#collections" },
+    { title: "Sign In", link: "signin" },
+  ];
+
+  /* If admin is logged in then show admin dashboard otherwise show customers navbar */
+  const navLinks = isAdmin
+    ? adminNavLinks.map((item) => (
+        <li>
+          <HashLink
+            to={item.link}
+            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-sky-500"
+          >
+            {item.title}
+          </HashLink>
+        </li>
+      ))
+    : customerNavLinks.map((item) => (
+        <li>
+          <HashLink
+            to={item.link}
+            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+          >
+            {item.title}
+          </HashLink>
+        </li>
+      ));
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="relative flex items-center justify-between">
@@ -15,27 +50,7 @@ const LimitlessNav = () => {
           <img src={brandLogo} className="h-[50px]" alt="limitless_logo" />
         </a>
         <ul className="flex items-center hidden space-x-8 lg:flex">
-          <li>
-            <a
-              href="/"
-              aria-label="Our product"
-              title="Our product"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            >
-              Product
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/"
-              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-              aria-label="Sign up"
-              title="Sign up"
-            >
-              Sign up
-            </a>
-          </li>
+          {navLinks}
         </ul>
         <div className="lg:hidden">
           <button
@@ -94,28 +109,7 @@ const LimitlessNav = () => {
                   </div>
                 </div>
                 <nav>
-                  <ul className="space-y-4">
-                    <li>
-                      <a
-                        href="/"
-                        aria-label="Our product"
-                        title="Our product"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >
-                        Product
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/"
-                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                        aria-label="Sign up"
-                        title="Sign up"
-                      >
-                        Sign up
-                      </a>
-                    </li>
-                  </ul>
+                  <ul className="space-y-4">{navLinks}</ul>
                 </nav>
               </div>
             </div>
