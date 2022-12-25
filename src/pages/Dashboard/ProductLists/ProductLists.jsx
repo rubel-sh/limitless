@@ -3,16 +3,13 @@ import AddButton from "../../../components/AddButton";
 import AdminProductModal from "../../../components/AdminProductModal";
 import Container from "../../../components/Container";
 import ProductsTable from "../../../components/ProductsTable";
-import useGetProducts from "../../../hooks/useGetProduct";
+import useFetchData from "../../../hooks/useFetchData";
 
 const ProductLists = () => {
   // States
   const [isOpen, setIsOpen] = useState(false);
   const [selectedModalItem, setSelectedModalItem] = useState({});
-
-  console.log(selectedModalItem);
-
-  const productsArray = useGetProducts();
+  const productsArray = useFetchData("products");
 
   return (
     <Container>

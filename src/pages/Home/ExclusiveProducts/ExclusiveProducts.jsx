@@ -1,10 +1,10 @@
 import React from "react";
 import Container from "../../../components/Container";
-import useGetProducts from "../../../hooks/useGetProduct";
+import useFetchData from "../../../hooks/useFetchData";
 import SingleProductCard from "./SingleProductCard/SingleProductCard";
 
 const ExclusiveProducts = () => {
-  const productsArray = useGetProducts();
+  const productsArray = useFetchData("products");
   return (
     <Container>
       <h2 className="md:text-2xl font-medium" id="collections">

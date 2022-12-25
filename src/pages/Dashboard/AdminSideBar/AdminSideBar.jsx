@@ -7,9 +7,9 @@ const AdminSideBar = () => {
     { title: "Product Lists", link: "product_lists" },
   ];
   return (
-    <div className="border p-4 md:h-[80vh]">
+    <div className="border p-4 md:h-[80vh] sticky top-1 rounded-md">
       <h2 className="text-xl font-bold mb-10">Admin Dashboard</h2>
-      {/* NavLinks */}
+      {/* Nav Links */}
       <ul className="flex flex-col gap-5">
         {adminNavLinks.map((item) => (
           <li key={item.link}>
