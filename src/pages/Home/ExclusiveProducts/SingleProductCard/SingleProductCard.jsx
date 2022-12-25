@@ -1,5 +1,6 @@
 import React from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { PhotoView } from "react-photo-view";
 
 const SingleProductCard = ({ productDetails }) => {
   const {
@@ -10,11 +11,14 @@ const SingleProductCard = ({ productDetails }) => {
   } = productDetails;
   return (
     <div className="p-4 ">
-      <img
-        src={product_image}
-        alt={product_title}
-        className=" hover:scale-105 transition-all mb-5 mx-auto"
-      />
+      <PhotoView src={product_image}>
+        <img
+          src={product_image}
+          alt={product_title}
+          className=" hover:scale-105 transition-all mb-5 mx-auto cursor-pointer"
+        />
+      </PhotoView>
+
       {/* product title, price, ratings .. */}
       <div className="flex flex-col items-center text-center">
         <h3 className="text-lg font-medium">{product_title}</h3>

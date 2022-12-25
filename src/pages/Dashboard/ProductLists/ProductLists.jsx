@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddButton from "../../../components/AddButton";
 import AdminProductModal from "../../../components/AdminProductModal";
 import Container from "../../../components/Container";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 import ProductsTable from "../../../components/ProductsTable";
 import useFetchData from "../../../hooks/useFetchData";
 
@@ -9,8 +10,16 @@ const ProductLists = () => {
   // States
   const [isOpen, setIsOpen] = useState(false);
   const [selectedModalItem, setSelectedModalItem] = useState({});
-  const productsArray = useFetchData("products");
+  const [productsArray, isFetching] = useFetchData("products");
 
+  // Show Loader while fetching data
+  if (isFetching) {
+    return (
+      <div className="mx-auto my-5 ">
+        <LoadingSpinner className="border-2 mx-auto" />
+      </div>
+    );
+  }
   return (
     <Container>
       <div className="">

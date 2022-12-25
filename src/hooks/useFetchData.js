@@ -2,19 +2,22 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useFetchData = (endpoint) => {
-  const [productsArray, setProductsArray] = useState([]);
+  const [fetchedData, setFetchedData] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
   const url = import.meta.env.VITE_API + "/" + endpoint;
-  console.log(endpoint);
+
   // Fetch Products Data
   useEffect(() => {
+    setIsFetching(true);
     const fetchData = async () => {
       const data = await axios.get(url);
-      setProductsArray(data.data);
+      setFetchedData(data.data);
+      setIsFetching(false);
     };
     fetchData();
   }, [endpoint]);
 
-  return productsArray;
+  return [fetchedData, isFetching];
 };
 
 export default useFetchData;

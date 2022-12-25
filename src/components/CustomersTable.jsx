@@ -1,4 +1,5 @@
 import React from "react";
+import { PhotoView } from "react-photo-view";
 
 const CustomersTable = ({ customersArray }) => {
   return (
@@ -40,7 +41,13 @@ const CustomersTable = ({ customersArray }) => {
                   {phone}
                 </td>
                 <td className="py-4 px-6">
-                  <img src={profileImage} alt="" className="w-[40px]" />
+                  <PhotoView src={profileImage}>
+                    <img
+                      src={profileImage}
+                      alt=""
+                      className="w-[40px] cursor-pointer"
+                    />
+                  </PhotoView>
                 </td>
               </tr>
             );
