@@ -1,19 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Container from "../../../components/Container";
+import useGetProducts from "../../../hooks/useGetProduct";
 import SingleProductCard from "./SingleProductCard/SingleProductCard";
 
 const ExclusiveProducts = () => {
-  const [productsArray, setProductsArray] = useState([]);
-  // Fetch Products Data
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await axios.get("products.json");
-      setProductsArray(data.data);
-    };
-    fetchData();
-  }, []);
-
+  const productsArray = useGetProducts();
   return (
     <Container>
       <h2 className="md:text-2xl font-medium" id="collections">

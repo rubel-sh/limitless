@@ -3,10 +3,15 @@ import AddButton from "../../../components/AddButton";
 import AdminProductModal from "../../../components/AdminProductModal";
 import Container from "../../../components/Container";
 import ProductsTable from "../../../components/ProductsTable";
+import useGetProducts from "../../../hooks/useGetProduct";
 
 const ProductLists = () => {
+  // States
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedModalItem, setSelectedModalItem] = useState({});
 
+  const productsArray = useGetProducts();
+  console.log(productsArray);
   return (
     <Container>
       <div className="">
@@ -19,7 +24,8 @@ const ProductLists = () => {
         <ProductsTable
           isOpen={isOpen}
           setIsOpen={setIsOpen}
-          // products={products}
+          productsArray={productsArray}
+          setSelectedModalItem={setSelectedModalItem}
         />
       </div>
       {/* Show Modal */}
