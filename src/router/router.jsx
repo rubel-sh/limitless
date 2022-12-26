@@ -6,6 +6,9 @@ import CustomerLists from "../pages/Dashboard/CustomerLists/CustomerLists";
 import AddProductForm from "../pages/Dashboard/ProductLists/AddProductForm/AddProductForm";
 import ProductLists from "../pages/Dashboard/ProductLists/ProductLists";
 import Home from "../pages/Home/Home";
+import Signin from "../pages/Signin/Signin";
+import Signup from "../pages/Signup/Signup";
+import PrivateRoute from "../routes/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -16,11 +19,25 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      {
+        path: "/signin",
+        element: <Signin />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
     ],
   },
+
+  // Private Routing
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "",

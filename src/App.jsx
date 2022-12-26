@@ -4,12 +4,15 @@ import "./App.css";
 import { router } from "./router/router";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider } from "react-photo-view";
+import TokenProvider from "./context/TokenProvider";
 
 function App() {
   return (
     <div className="App">
       <PhotoProvider>
-        <RouterProvider router={router}></RouterProvider>
+        <TokenProvider>
+          <RouterProvider router={router}></RouterProvider>
+        </TokenProvider>
       </PhotoProvider>
     </div>
   );

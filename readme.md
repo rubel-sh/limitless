@@ -2,7 +2,7 @@
 
 1. git clone
 2. npm install
-3. npm run dev on terminal
+3. "npm run dev" on terminal
 
 ## Technologies
 
@@ -10,3 +10,5 @@
 - react-router-dom
 - tailwindcss
 - react-icons
+- react-photo-view
+- react-hot-toast
