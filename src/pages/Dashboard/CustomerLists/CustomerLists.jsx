@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AddButton from "../../../components/AddButton";
 import Container from "../../../components/Container";
 import CustomersTable from "../../../components/CustomersTable";
@@ -21,7 +22,9 @@ const CustomerLists = () => {
     <Container>
       <div className="flex justify-between">
         <h3 className="text-xl">Customer Lists</h3>
-        <AddButton>Add Customer</AddButton>
+        <Link to="/dashboard/add_customer">
+          <AddButton>Add Customer</AddButton>
+        </Link>
       </div>
       {/* Table goes here */}
       <CustomersTable customersArray={customersArray} />

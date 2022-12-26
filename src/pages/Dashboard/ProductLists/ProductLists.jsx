@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AddButton from "../../../components/AddButton";
 import AdminProductModal from "../../../components/AdminProductModal";
 import Container from "../../../components/Container";
@@ -26,7 +27,9 @@ const ProductLists = () => {
         {/* Title */}
         <div className="flex justify-between">
           <h3 className="text-xl">Product Lists</h3>
-          <AddButton>Add Product</AddButton>
+          <Link to="/dashboard/add_product">
+            <AddButton>Add Product</AddButton>
+          </Link>
         </div>
         {/* Table goes here */}
         <ProductsTable
