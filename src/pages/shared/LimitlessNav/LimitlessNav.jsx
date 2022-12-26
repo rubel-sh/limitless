@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 import brandLogo from "../../../assets/logo/limitless.png";
 import { TokenContext } from "../../../context/TokenProvider";
@@ -42,14 +43,9 @@ const LimitlessNav = () => {
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="relative flex items-center justify-between">
-        <a
-          href="/"
-          aria-label="Company"
-          title="Company"
-          className="inline-flex items-center"
-        >
+        <Link to="/" className="inline-flex items-center">
           <img src={brandLogo} className="h-[50px]" alt="limitless_logo" />
-        </a>
+        </Link>
         <ul className="flex items-center hidden space-x-8 lg:flex">
           {navLinks}
         </ul>

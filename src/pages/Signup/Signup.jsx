@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Button, Label } from "flowbite-react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const [isRegistering, setIsRegistering] = useState(false);
   const navigate = useNavigate();
 
   const handleRegistration = (e) => {
@@ -14,6 +15,7 @@ const Signup = () => {
     const password = form.password.value;
 
     // send data to db
+    setIsRegistering(true);
     axios
       .put(`${import.meta.env.VITE_API}/register`, {
         phone,
@@ -21,6 +23,7 @@ const Signup = () => {
       })
       .then((data) => {
         if (data.data.acknowledged) {
+          setIsRegistering(false);
           navigate("/signin");
           return toast.success(
             "Account created successfully, Please login now"
@@ -86,9 +89,10 @@ const Signup = () => {
 
             <Button
               type="submit"
+              disabled={isRegistering}
               className="w-[210px] bg-woodDark hover:bg-woodLight text-white mt-5"
             >
-              Sign Up
+              {isRegistering ? "Registering..." : "SignUp"}
             </Button>
             <Link to="/signin">Already Signed In ?</Link>
           </form>

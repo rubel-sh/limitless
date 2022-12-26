@@ -5,12 +5,14 @@ import { router } from "./router/router";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider } from "react-photo-view";
 import TokenProvider from "./context/TokenProvider";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="App">
       <PhotoProvider>
         <TokenProvider>
+          <Toaster />
           <RouterProvider router={router}></RouterProvider>
         </TokenProvider>
       </PhotoProvider>
