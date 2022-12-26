@@ -45,7 +45,7 @@ const CustomersTable = ({ customersArray }) => {
                     <img
                       src={profileImage}
                       alt=""
-                      className="w-[40px] cursor-pointer"
+                      className="w-[40px] cursor-pointer rounded-md"
                     />
                   </PhotoView>
                 </td>
