@@ -24,7 +24,6 @@ const CustomersTable = ({ customersArray }) => {
         <tbody>
           {customersArray.map((customer, index) => {
             const { email, phone, profileImage, name } = customer;
-            console.log(profileImage);
             return (
               <tr
                 key={index}

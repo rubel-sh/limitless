@@ -1,20 +1,20 @@
 import React, { useContext, useState } from "react";
-import { HashLink, NavHashLink } from "react-router-hash-link";
+import { NavHashLink } from "react-router-hash-link";
 import brandLogo from "../../../assets/logo/limitless.png";
 import { TokenContext } from "../../../context/TokenProvider";
 
 const LimitlessNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const token = localStorage.getItem("limitlessToken");
+  const { token } = useContext(TokenContext);
 
   const adminNavLinks = [
     { title: "DASHBOARD", link: "/dashboard" },
-    { title: "Sign Out", link: "signout" },
+    { title: "Sign Out", link: "/signout" },
   ];
   const customerNavLinks = [
     { title: "Collections", link: "/#collections" },
-    { title: "Sign In", link: "signin" },
+    { title: "Sign In", link: "/signin" },
+    { title: "Sign Up", link: "/signup" },
   ];
 
   /* If admin is logged in then show admin dashboard otherwise show customers navbar */

@@ -98,7 +98,7 @@ const Signin = () => {
               type="submit"
               className="w-[210px] bg-woodDark hover:bg-woodLight text-white mt-5"
             >
-              Login
+              Sign In
             </Button>
           </form>
         </div>

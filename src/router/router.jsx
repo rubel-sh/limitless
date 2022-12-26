@@ -6,6 +6,7 @@ import CustomerLists from "../pages/Dashboard/CustomerLists/CustomerLists";
 import AddProductForm from "../pages/Dashboard/ProductLists/AddProductForm/AddProductForm";
 import ProductLists from "../pages/Dashboard/ProductLists/ProductLists";
 import Home from "../pages/Home/Home";
+import Signout from "../pages/shared/signout/signout";
 import Signin from "../pages/Signin/Signin";
 import Signup from "../pages/Signup/Signup";
 import PrivateRoute from "../routes/PrivateRoute";
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/signout",
+        element: <Signout />,
       },
     ],
   },
